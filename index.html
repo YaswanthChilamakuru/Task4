@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(34, 31, 31);
+    color: #f4f4f4;
+}
+
+.container {
+    background-color: #141313;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 85%;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 92%;
+}
+.a{
+    margin: 4px auto;
+    color: #555050;
+    text-decoration: underline;
+    width: auto;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm">
+            <img src="./img.jpg">
+            <input type="text" id="username" name="username" placeholder="username">
+
+            <input type="password" id="password" name="password" placeholder="Password">
+
+            <button type="button" onclick="validateLogin()">Login</button>
+            <div class="a">
+                <a>Forget your password</a>
+            </div>
+           
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+    // Get form inputs
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Email validation
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(username)) {
+        alert("Please enter a valid email address for the username.");
+        return;
+    }
+
+    // Password validation
+    var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?!.*[^A-Za-z0-9@]).*$/;
+    if (password === "SmartServTest@123") {
+        // Redirect to the dashboard page
+        window.location.href = "index2.html"; // Replace with your actual dashboard page
+    }
+    if (!passwordRegex.test(password)) {
+        alert("Password must contain an uppercase letter, a number, and only '@' as a special character.");
+        return;
+    }
+
+    // If validation passes, you can proceed with the login logic
+    alert("Login successful!");
+}
+
+    </script>
+</body>
+</html>
